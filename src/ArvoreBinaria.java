@@ -166,16 +166,13 @@ public class ArvoreBinaria {
     }
 
     private void removerNoDoisFilhos(No atual, No pai){
-        No sucessor = encontrarSucessor(atual);
-        atual.setConteudo(sucessor.getConteudo());
-        procurarElemento(sucessor.getConteudo(), atual.getDireita(), atual);
-    }
-
-    private No encontrarSucessor(No atual){
+        No paiSucessor = atual;
         No sucessor = atual.getDireita();
-        while (sucessor.getEsquerda() != null){
+        while (sucessor.getEsquerda() != null) {
+            paiSucessor = sucessor;
             sucessor = sucessor.getEsquerda();
         }
-        return sucessor;
+        atual.setConteudo(sucessor.getConteudo());
+        tipo(sucessor, paiSucessor);
     }
 }
