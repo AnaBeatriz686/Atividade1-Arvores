@@ -131,7 +131,7 @@ public class ArvoreBinaria {
         }
 
         if (atual.getEsquerda() != null && atual.getDireita() != null){
-            removerNoDoisFilhos(atual, pai);
+            removerNoDoisFilhos(atual);
         }
     }
 
@@ -165,7 +165,7 @@ public class ArvoreBinaria {
         }
     }
 
-    private void removerNoDoisFilhos(No atual, No pai){
+    private void removerNoDoisFilhos(No atual){
         No paiSucessor = atual;
         No sucessor = atual.getDireita();
         while (sucessor.getEsquerda() != null) {
